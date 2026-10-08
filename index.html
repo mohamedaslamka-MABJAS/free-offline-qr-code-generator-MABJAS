@@ -17,7 +17,7 @@
         /* Custom Theme CSS Variables */
         :root[data-theme="cyberpunk"] {
             --bg-primary: #090a16;
-            --glass-bg: rgba(18, 16, 38, 0.75);
+            --glass-bg: rgba(18, 16, 38, 0.85);
             --glass-border: rgba(236, 72, 153, 0.3);
             --accent-primary: #00f0ff;
             --accent-secondary: #ff007f;
@@ -29,7 +29,7 @@
 
         :root[data-theme="midnight"] {
             --bg-primary: #0b0f19;
-            --glass-bg: rgba(17, 24, 39, 0.8);
+            --glass-bg: rgba(17, 24, 39, 0.88);
             --glass-border: rgba(139, 92, 246, 0.3);
             --accent-primary: #a855f7;
             --accent-secondary: #6366f1;
@@ -41,7 +41,7 @@
 
         :root[data-theme="solargold"] {
             --bg-primary: #180d04;
-            --glass-bg: rgba(36, 20, 8, 0.8);
+            --glass-bg: rgba(36, 20, 8, 0.88);
             --glass-border: rgba(245, 158, 11, 0.35);
             --accent-primary: #fbbf24;
             --accent-secondary: #f97316;
@@ -53,7 +53,7 @@
 
         :root[data-theme="matrix"] {
             --bg-primary: #021107;
-            --glass-bg: rgba(4, 28, 13, 0.82);
+            --glass-bg: rgba(4, 28, 13, 0.88);
             --glass-border: rgba(34, 197, 94, 0.35);
             --accent-primary: #22c55e;
             --accent-secondary: #10b981;
@@ -65,7 +65,7 @@
 
         :root[data-theme="pasteldream"] {
             --bg-primary: #13111c;
-            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-bg: rgba(255, 255, 255, 0.12);
             --glass-border: rgba(255, 255, 255, 0.25);
             --accent-primary: #f472b6;
             --accent-secondary: #38bdf8;
@@ -79,12 +79,10 @@
             background-color: var(--bg-primary);
             color: var(--text-main);
             font-family: var(--font-family);
-            min-height: 100vh;
-            overflow-x: hidden;
             transition: background-color 0.4s ease, color 0.4s ease;
         }
 
-        /* Mouse reactive interactive canvas background */
+        /* Interactive Canvas Background */
         #interactive-bg {
             position: fixed;
             top: 0;
@@ -95,7 +93,7 @@
             pointer-events: none;
         }
 
-        /* Custom Glassmorphism Cards */
+        /* Glassmorphism Panels */
         .glass-panel {
             background: var(--glass-bg);
             backdrop-filter: blur(16px);
@@ -113,25 +111,22 @@
             transition: transform 0.05s ease, opacity 0.2s ease;
         }
 
-        /* Neon Ring Cursor */
         .cursor-ring {
-            width: 28px;
-            height: 28px;
-            border: 2px solid var(--pointer-color);
-            border-radius: 50%;
-            box-shadow: 0 0 12px var(--pointer-color);
-        }
-
-        /* Wand Sparkle */
-        .cursor-wand::before {
-            content: '✨';
-            font-size: 22px;
-        }
-
-        /* Crosshair */
-        .cursor-crosshair {
             width: 24px;
             height: 24px;
+            border: 2px solid var(--pointer-color);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--pointer-color);
+        }
+
+        .cursor-wand::before {
+            content: '✨';
+            font-size: 20px;
+        }
+
+        .cursor-crosshair {
+            width: 20px;
+            height: 20px;
             border-left: 2px solid var(--pointer-color);
             border-right: 2px solid var(--pointer-color);
             border-top: 2px solid var(--pointer-color);
@@ -139,41 +134,40 @@
             border-radius: 50%;
         }
 
-        /* Rocket */
         .cursor-rocket::before {
             content: '🚀';
-            font-size: 22px;
+            font-size: 20px;
         }
 
-        /* Mobile Device Simulator Frame */
+        /* Mobile Simulator Frame */
         .simulator-mobile {
             max-width: 410px !important;
             margin: 0 auto;
-            border: 12px solid #1f2937;
-            border-radius: 40px;
+            border: 10px solid #1f2937;
+            border-radius: 36px;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-            padding: 12px;
+            padding: 8px;
             position: relative;
         }
 
         .simulator-mobile::before {
             content: '';
             position: absolute;
-            top: 8px;
+            top: 6px;
             left: 50%;
             transform: translateX(-50%);
-            width: 120px;
-            height: 18px;
+            width: 100px;
+            height: 14px;
             background-color: #1f2937;
-            border-bottom-left-radius: 12px;
-            border-bottom-right-radius: 12px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
             z-index: 50;
         }
 
-        /* Custom Scrollbar */
+        /* Scrollbars for internal elements */
         ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
         }
         ::-webkit-scrollbar-track {
             background: rgba(0, 0, 0, 0.2);
@@ -189,8 +183,8 @@
             justify-content: center;
             align-items: center;
             background: #ffffff;
-            padding: 16px;
-            border-radius: 16px;
+            padding: 12px;
+            border-radius: 14px;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
             position: relative;
             overflow: hidden;
@@ -207,70 +201,68 @@
             z-index: 9998;
         }
 
-        /* Glow buttons */
         .btn-glow {
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.2s ease;
         }
         .btn-glow:hover {
-            box-shadow: 0 0 18px var(--accent-primary);
-            transform: translateY(-2px);
+            box-shadow: 0 0 14px var(--accent-primary);
+            transform: translateY(-1px);
         }
         .btn-glow:active {
             transform: translateY(1px);
         }
     </style>
 </head>
-<body class="p-2 md:p-6 text-sm">
+<body class="p-2 lg:p-3 text-xs min-h-screen lg:h-screen lg:overflow-hidden flex flex-col justify-between">
 
     <canvas id="interactive-bg"></canvas>
     <canvas id="pet-canvas"></canvas>
     <div id="custom-cursor" class="custom-cursor cursor-ring"></div>
 
-    <!-- MAIN APP CONTAINER -->
-    <div id="app-viewport" class="relative z-10 max-w-7xl mx-auto space-y-6">
+    <!-- MAIN SINGLE PAGE WRAPPER -->
+    <div id="app-viewport" class="relative z-10 max-w-7xl mx-auto w-full flex-1 flex flex-col justify-between gap-2 h-full">
 
-        <header class="glass-panel rounded-2xl p-4 md:p-6 flex flex-col lg:flex-row items-center justify-between gap-4">
-            <div class="space-y-2 text-center lg:text-left">
-                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2">
-                    <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2.5 py-0.5 rounded-full text-xs font-semibold flex items-center gap-1">
-                        <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> 100% Offline
+        <!-- HEADER WIDGET -->
+        <header class="glass-panel rounded-xl p-2.5 flex items-center justify-between gap-3 shrink-0">
+            <div class="space-y-1">
+                <div class="flex items-center gap-1.5 flex-wrap">
+                    <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.2 rounded-full text-[10px] font-semibold flex items-center gap-1">
+                        <i data-lucide="shield-check" class="w-3 h-3"></i> 100% Offline
                     </span>
-                    <span class="bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 px-2.5 py-0.5 rounded-full text-xs font-semibold flex items-center gap-1">
-                        <i data-lucide="zap" class="w-3.5 h-3.5"></i> Free Forever
+                    <span class="bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 px-2 py-0.2 rounded-full text-[10px] font-semibold flex items-center gap-1">
+                        <i data-lucide="zap" class="w-3 h-3"></i> Free Forever
                     </span>
-                    <span class="bg-purple-500/20 text-purple-400 border border-purple-500/30 px-2.5 py-0.5 rounded-full text-xs font-semibold flex items-center gap-1">
-                        <i data-lucide="lock" class="w-3.5 h-3.5"></i> Zero Data Storage
+                    <span class="bg-purple-500/20 text-purple-400 border border-purple-500/30 px-2 py-0.2 rounded-full text-[10px] font-semibold flex items-center gap-1">
+                        <i data-lucide="lock" class="w-3 h-3"></i> Zero Data Storage
                     </span>
-                    <span class="bg-pink-500/20 text-pink-400 border border-pink-500/30 px-2.5 py-0.5 rounded-full text-xs font-semibold flex items-center gap-1">
-                        <i data-lucide="user-x" class="w-3.5 h-3.5"></i> No Account Needed
+                    <span class="bg-pink-500/20 text-pink-400 border border-pink-500/30 px-2 py-0.2 rounded-full text-[10px] font-semibold flex items-center gap-1">
+                        <i data-lucide="user-x" class="w-3 h-3"></i> No Account Needed
                     </span>
                 </div>
-                <h1 class="text-2xl md:text-4xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500">
+                <h1 class="text-xl lg:text-2xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500">
                     FREE OFFLINE QR CODE GENERATOR
                 </h1>
-                <p class="text-xs md:text-sm text-gray-300">
-                    Create Static & Dynamic-style QR Codes with complete custom styling, offline safety, and SVG/PNG exports.
-                </p>
             </div>
 
             <!-- TIME & CALENDAR WIDGET -->
-            <div class="glass-panel p-3 rounded-xl flex items-center gap-4 border border-white/10 shrink-0">
+            <div class="glass-panel px-3 py-1.5 rounded-lg flex items-center gap-3 border border-white/10 shrink-0">
                 <div class="text-right">
-                    <div id="clock-display" class="text-xl md:text-2xl font-mono font-bold tracking-wider text-cyan-400">00:00:00 AM</div>
-                    <div id="date-display" class="text-xs text-gray-300 font-medium">Loading Date...</div>
+                    <div id="clock-display" class="text-base font-mono font-bold tracking-wider text-cyan-400">00:00:00 AM</div>
+                    <div id="date-display" class="text-[10px] text-gray-300">Loading Date...</div>
                 </div>
-                <button id="calendar-btn" title="Open Calendar" class="p-2 rounded-lg bg-white/5 hover:bg-white/15 text-pink-400 transition-colors btn-glow">
-                    <i data-lucide="calendar" class="w-6 h-6"></i>
+                <button id="calendar-btn" title="Open Calendar" class="p-1.5 rounded-lg bg-white/5 hover:bg-white/15 text-pink-400 transition-colors btn-glow">
+                    <i data-lucide="calendar" class="w-5 h-5"></i>
                 </button>
             </div>
         </header>
 
-        <div class="glass-panel rounded-xl p-3 flex flex-wrap items-center justify-between gap-3 text-xs">
+        <!-- TOP TOOLBAR CONTROLS -->
+        <div class="glass-panel rounded-xl p-2 flex flex-wrap items-center justify-between gap-2 text-[11px] shrink-0">
             <!-- Theme Switcher -->
-            <div class="flex items-center gap-2">
-                <i data-lucide="palette" class="w-4 h-4 text-pink-400"></i>
+            <div class="flex items-center gap-1.5">
+                <i data-lucide="palette" class="w-3.5 h-3.5 text-pink-400"></i>
                 <span class="font-semibold hidden sm:inline">Theme:</span>
-                <select id="theme-select" class="bg-slate-800/90 border border-white/20 rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-white">
+                <select id="theme-select" class="bg-slate-800/90 border border-white/20 rounded-md px-2 py-1 focus:outline-none focus:ring-1 focus:ring-cyan-400 text-white">
                     <option value="cyberpunk">Cyberpunk Neon</option>
                     <option value="midnight">Midnight Dark</option>
                     <option value="solargold">Solar Gold</option>
@@ -280,10 +272,10 @@
             </div>
 
             <!-- Custom Cursor Switcher -->
-            <div class="flex items-center gap-2">
-                <i data-lucide="mouse-pointer" class="w-4 h-4 text-cyan-400"></i>
+            <div class="flex items-center gap-1.5">
+                <i data-lucide="mouse-pointer" class="w-3.5 h-3.5 text-cyan-400"></i>
                 <span class="font-semibold hidden sm:inline">Cursor:</span>
-                <select id="cursor-select" class="bg-slate-800/90 border border-white/20 rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-white">
+                <select id="cursor-select" class="bg-slate-800/90 border border-white/20 rounded-md px-2 py-1 focus:outline-none focus:ring-1 focus:ring-cyan-400 text-white">
                     <option value="ring">Neon Ring</option>
                     <option value="wand">Magic Wand</option>
                     <option value="crosshair">Crosshair</option>
@@ -293,338 +285,299 @@
             </div>
 
             <!-- Pet Toggle -->
-            <button id="pet-toggle-btn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-500/20 border border-purple-500/40 text-purple-300 hover:bg-purple-500/30 transition-colors">
-                <i data-lucide="bot" class="w-4 h-4"></i>
+            <button id="pet-toggle-btn" class="flex items-center gap-1 px-2.5 py-1 rounded-md bg-purple-500/20 border border-purple-500/40 text-purple-300 hover:bg-purple-500/30 transition-colors">
+                <i data-lucide="bot" class="w-3.5 h-3.5"></i>
                 <span id="pet-toggle-text">Pet: ON</span>
             </button>
 
             <!-- Sound FX Toggle -->
-            <button id="sound-toggle-btn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 hover:bg-cyan-500/30 transition-colors">
-                <i data-lucide="volume-2" id="sound-icon" class="w-4 h-4"></i>
+            <button id="sound-toggle-btn" class="flex items-center gap-1 px-2.5 py-1 rounded-md bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 hover:bg-cyan-500/30 transition-colors">
+                <i data-lucide="volume-2" id="sound-icon" class="w-3.5 h-3.5"></i>
                 <span id="sound-text">Sound: ON</span>
             </button>
 
             <!-- Font Size Adjuster -->
-            <div class="flex items-center gap-1 bg-white/5 p-1 rounded-lg border border-white/10">
-                <i data-lucide="type" class="w-4 h-4 text-gray-400 ml-1"></i>
-                <button id="font-sm" class="px-2 py-0.5 rounded hover:bg-white/10 font-bold">A-</button>
-                <button id="font-normal" class="px-2 py-0.5 rounded hover:bg-white/10 font-bold bg-white/20">A</button>
-                <button id="font-lg" class="px-2 py-0.5 rounded hover:bg-white/10 font-bold">A+</button>
+            <div class="flex items-center gap-0.5 bg-white/5 p-0.5 rounded-md border border-white/10">
+                <i data-lucide="type" class="w-3.5 h-3.5 text-gray-400 mx-1"></i>
+                <button id="font-sm" class="px-1.5 py-0.5 rounded hover:bg-white/10 font-bold">A-</button>
+                <button id="font-normal" class="px-1.5 py-0.5 rounded hover:bg-white/10 font-bold bg-white/20">A</button>
+                <button id="font-lg" class="px-1.5 py-0.5 rounded hover:bg-white/10 font-bold">A+</button>
             </div>
 
             <!-- Viewport Simulator Toggle -->
-            <div class="flex items-center gap-1 bg-white/5 p-1 rounded-lg border border-white/10">
-                <button id="view-desktop" class="p-1.5 rounded bg-white/20 hover:bg-white/30" title="Desktop Responsive View">
-                    <i data-lucide="monitor" class="w-4 h-4"></i>
+            <div class="flex items-center gap-0.5 bg-white/5 p-0.5 rounded-md border border-white/10">
+                <button id="view-desktop" class="p-1 rounded bg-white/20 hover:bg-white/30" title="Desktop View">
+                    <i data-lucide="monitor" class="w-3.5 h-3.5"></i>
                 </button>
-                <button id="view-mobile" class="p-1.5 rounded hover:bg-white/20" title="Mobile Frame View">
-                    <i data-lucide="smartphone" class="w-4 h-4"></i>
+                <button id="view-mobile" class="p-1 rounded hover:bg-white/20" title="Mobile Frame View">
+                    <i data-lucide="smartphone" class="w-3.5 h-3.5"></i>
                 </button>
             </div>
         </div>
 
-        <main id="main-content" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- MAIN MAIN CONTENT VIEWPORT -->
+        <main id="main-content" class="grid grid-cols-1 lg:grid-cols-12 gap-3 flex-1 min-h-0">
 
             <!-- LEFT COLUMN: Generator Controls -->
-            <div class="lg:col-span-7 space-y-6">
+            <div class="lg:col-span-7 flex flex-col justify-between gap-2 overflow-y-auto pr-1">
 
-                <!-- Mode Selection Tabs (Static vs Dynamic) -->
-                <div class="glass-panel rounded-2xl p-2 flex gap-2">
-                    <button id="tab-static" class="flex-1 py-3 px-4 rounded-xl font-bold text-center flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg btn-glow">
-                        <i data-lucide="qr-code" class="w-5 h-5"></i> Static QR
+                <!-- Mode Tabs -->
+                <div class="glass-panel rounded-xl p-1.5 flex gap-1.5 shrink-0">
+                    <button id="tab-static" class="flex-1 py-2 px-3 rounded-lg font-bold text-center flex items-center justify-center gap-1.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md btn-glow text-xs">
+                        <i data-lucide="qr-code" class="w-4 h-4"></i> Static QR
                     </button>
-                    <button id="tab-dynamic" class="flex-1 py-3 px-4 rounded-xl font-bold text-center flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-gray-300 transition-colors btn-glow">
-                        <i data-lucide="activity" class="w-5 h-5"></i> Dynamic QR Simulator
+                    <button id="tab-dynamic" class="flex-1 py-2 px-3 rounded-lg font-bold text-center flex items-center justify-center gap-1.5 bg-white/5 hover:bg-white/10 text-gray-300 transition-colors btn-glow text-xs">
+                        <i data-lucide="activity" class="w-4 h-4"></i> Dynamic QR Simulator
                     </button>
                 </div>
 
-                <!-- QR Content Type Selector & Inputs -->
-                <div class="glass-panel rounded-2xl p-5 md:p-6 space-y-5">
+                <!-- QR Content Selector & Inputs -->
+                <div class="glass-panel rounded-xl p-3 space-y-3 shrink-0">
                     
-                    <!-- Content Type Icons Row -->
-                    <div class="space-y-2">
-                        <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Select QR Content Type</label>
-                        <div class="grid grid-cols-4 sm:grid-cols-8 gap-2" id="type-selector">
-                            <button data-type="url" class="type-btn active p-2.5 rounded-xl border border-cyan-400/50 bg-cyan-500/20 text-cyan-300 flex flex-col items-center gap-1 hover:bg-cyan-500/30 transition-all">
-                                <i data-lucide="link" class="w-5 h-5"></i>
-                                <span class="text-[10px] font-semibold">URL</span>
+                    <div class="space-y-1">
+                        <label class="block text-[10px] font-semibold text-gray-300 uppercase tracking-wider">Select Content Type</label>
+                        <div class="grid grid-cols-4 sm:grid-cols-8 gap-1.5" id="type-selector">
+                            <button data-type="url" class="type-btn active p-1.5 rounded-lg border border-cyan-400/50 bg-cyan-500/20 text-cyan-300 flex flex-col items-center gap-0.5 hover:bg-cyan-500/30 transition-all">
+                                <i data-lucide="link" class="w-4 h-4"></i>
+                                <span class="text-[9px] font-semibold">URL</span>
                             </button>
-                            <button data-type="text" class="type-btn p-2.5 rounded-xl border border-white/10 bg-white/5 text-gray-300 flex flex-col items-center gap-1 hover:bg-white/10 transition-all">
-                                <i data-lucide="file-text" class="w-5 h-5"></i>
-                                <span class="text-[10px] font-semibold">Text</span>
+                            <button data-type="text" class="type-btn p-1.5 rounded-lg border border-white/10 bg-white/5 text-gray-300 flex flex-col items-center gap-0.5 hover:bg-white/10 transition-all">
+                                <i data-lucide="file-text" class="w-4 h-4"></i>
+                                <span class="text-[9px] font-semibold">Text</span>
                             </button>
-                            <button data-type="wifi" class="type-btn p-2.5 rounded-xl border border-white/10 bg-white/5 text-gray-300 flex flex-col items-center gap-1 hover:bg-white/10 transition-all">
-                                <i data-lucide="wifi" class="w-5 h-5"></i>
-                                <span class="text-[10px] font-semibold">Wi-Fi</span>
+                            <button data-type="wifi" class="type-btn p-1.5 rounded-lg border border-white/10 bg-white/5 text-gray-300 flex flex-col items-center gap-0.5 hover:bg-white/10 transition-all">
+                                <i data-lucide="wifi" class="w-4 h-4"></i>
+                                <span class="text-[9px] font-semibold">Wi-Fi</span>
                             </button>
-                            <button data-type="email" class="type-btn p-2.5 rounded-xl border border-white/10 bg-white/5 text-gray-300 flex flex-col items-center gap-1 hover:bg-white/10 transition-all">
-                                <i data-lucide="mail" class="w-5 h-5"></i>
-                                <span class="text-[10px] font-semibold">Email</span>
+                            <button data-type="email" class="type-btn p-1.5 rounded-lg border border-white/10 bg-white/5 text-gray-300 flex flex-col items-center gap-0.5 hover:bg-white/10 transition-all">
+                                <i data-lucide="mail" class="w-4 h-4"></i>
+                                <span class="text-[9px] font-semibold">Email</span>
                             </button>
-                            <button data-type="phone" class="type-btn p-2.5 rounded-xl border border-white/10 bg-white/5 text-gray-300 flex flex-col items-center gap-1 hover:bg-white/10 transition-all">
-                                <i data-lucide="phone" class="w-5 h-5"></i>
-                                <span class="text-[10px] font-semibold">Phone</span>
+                            <button data-type="phone" class="type-btn p-1.5 rounded-lg border border-white/10 bg-white/5 text-gray-300 flex flex-col items-center gap-0.5 hover:bg-white/10 transition-all">
+                                <i data-lucide="phone" class="w-4 h-4"></i>
+                                <span class="text-[9px] font-semibold">Phone</span>
                             </button>
-                            <button data-type="sms" class="type-btn p-2.5 rounded-xl border border-white/10 bg-white/5 text-gray-300 flex flex-col items-center gap-1 hover:bg-white/10 transition-all">
-                                <i data-lucide="message-square" class="w-5 h-5"></i>
-                                <span class="text-[10px] font-semibold">SMS</span>
+                            <button data-type="sms" class="type-btn p-1.5 rounded-lg border border-white/10 bg-white/5 text-gray-300 flex flex-col items-center gap-0.5 hover:bg-white/10 transition-all">
+                                <i data-lucide="message-square" class="w-4 h-4"></i>
+                                <span class="text-[9px] font-semibold">SMS</span>
                             </button>
-                            <button data-type="whatsapp" class="type-btn p-2.5 rounded-xl border border-white/10 bg-white/5 text-gray-300 flex flex-col items-center gap-1 hover:bg-white/10 transition-all">
-                                <i data-lucide="message-circle" class="w-5 h-5"></i>
-                                <span class="text-[10px] font-semibold">WhatsApp</span>
+                            <button data-type="whatsapp" class="type-btn p-1.5 rounded-lg border border-white/10 bg-white/5 text-gray-300 flex flex-col items-center gap-0.5 hover:bg-white/10 transition-all">
+                                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                <span class="text-[9px] font-semibold">WhatsApp</span>
                             </button>
-                            <button data-type="vcard" class="type-btn p-2.5 rounded-xl border border-white/10 bg-white/5 text-gray-300 flex flex-col items-center gap-1 hover:bg-white/10 transition-all">
-                                <i data-lucide="contact" class="w-5 h-5"></i>
-                                <span class="text-[10px] font-semibold">VCard</span>
+                            <button data-type="vcard" class="type-btn p-1.5 rounded-lg border border-white/10 bg-white/5 text-gray-300 flex flex-col items-center gap-0.5 hover:bg-white/10 transition-all">
+                                <i data-lucide="contact" class="w-4 h-4"></i>
+                                <span class="text-[9px] font-semibold">VCard</span>
                             </button>
                         </div>
                     </div>
 
-                    <!-- Dynamic Mode Info Banner (Hidden by default) -->
-                    <div id="dynamic-info-banner" class="hidden p-3 rounded-xl bg-purple-500/20 border border-purple-500/40 text-purple-200 text-xs flex items-start gap-2">
-                        <i data-lucide="info" class="w-4 h-4 shrink-0 mt-0.5 text-purple-300"></i>
+                    <!-- Dynamic Mode Info Banner -->
+                    <div id="dynamic-info-banner" class="hidden p-2 rounded-lg bg-purple-500/20 border border-purple-500/40 text-purple-200 text-[11px] flex items-start gap-2">
+                        <i data-lucide="info" class="w-3.5 h-3.5 shrink-0 mt-0.5 text-purple-300"></i>
                         <div>
-                            <strong class="font-bold">Dynamic QR Payload Enabled:</strong> Encodes a editable routing structure. You can update the target destination link anytime without changing the QR design appearance!
+                            <strong>Dynamic QR Payload Active:</strong> Encodes editable redirection layer.
                         </div>
                     </div>
 
-                    <!-- DYNAMIC FIELD CONTAINERS -->
-                    <div id="dynamic-inputs-container" class="space-y-4">
-                        <!-- URL Field (Default) -->
-                        <div id="input-group-url" class="space-y-1.5 input-group">
-                            <label class="block text-xs font-medium text-gray-300">Website URL / Destination</label>
+                    <!-- INPUT FIELDS -->
+                    <div id="dynamic-inputs-container">
+                        <!-- URL Field -->
+                        <div id="input-group-url" class="space-y-1 input-group">
+                            <label class="block text-[11px] font-medium text-gray-300">Target Website URL</label>
                             <div class="relative">
-                                <i data-lucide="globe" class="w-4 h-4 absolute left-3 top-3 text-gray-400"></i>
-                                <input type="url" id="input-url" value="https://www.qrcreator.com" placeholder="https://example.com" class="w-full pl-9 pr-4 py-2.5 bg-slate-900/80 border border-white/15 rounded-xl text-white focus:outline-none focus:border-cyan-400">
+                                <i data-lucide="globe" class="w-3.5 h-3.5 absolute left-2.5 top-2.5 text-gray-400"></i>
+                                <input type="url" id="input-url" value="https://mohamedaslamka-mabjas.github.io/free-offline-qr-code-generator-MABJAS/" class="w-full pl-8 pr-3 py-1.5 bg-slate-900/80 border border-white/15 rounded-lg text-white focus:outline-none focus:border-cyan-400 text-xs">
                             </div>
                         </div>
 
                         <!-- Text Field -->
-                        <div id="input-group-text" class="space-y-1.5 input-group hidden">
-                            <label class="block text-xs font-medium text-gray-300">Plain Text / Message</label>
-                            <textarea id="input-text" rows="3" placeholder="Enter raw text here..." class="w-full p-3 bg-slate-900/80 border border-white/15 rounded-xl text-white focus:outline-none focus:border-cyan-400">Welcome to Offline QR Creator!</textarea>
+                        <div id="input-group-text" class="space-y-1 input-group hidden">
+                            <label class="block text-[11px] font-medium text-gray-300">Text Content</label>
+                            <textarea id="input-text" rows="2" class="w-full p-2 bg-slate-900/80 border border-white/15 rounded-lg text-white focus:outline-none focus:border-cyan-400 text-xs">Welcome to Offline QR Creator!</textarea>
                         </div>
 
                         <!-- Wi-Fi Fields -->
-                        <div id="input-group-wifi" class="space-y-3 input-group hidden">
+                        <div id="input-group-wifi" class="space-y-2 input-group hidden">
                             <div>
-                                <label class="block text-xs font-medium text-gray-300">Network Name (SSID)</label>
-                                <input type="text" id="wifi-ssid" placeholder="MyHomeWiFi" class="w-full px-3 py-2 bg-slate-900/80 border border-white/15 rounded-xl text-white focus:outline-none focus:border-cyan-400">
+                                <label class="block text-[11px] font-medium text-gray-300">SSID (Network Name)</label>
+                                <input type="text" id="wifi-ssid" placeholder="MyWiFi" class="w-full px-2.5 py-1 bg-slate-900/80 border border-white/15 rounded-lg text-white text-xs">
                             </div>
-                            <div class="grid grid-cols-2 gap-3">
+                            <div class="grid grid-cols-2 gap-2">
                                 <div>
-                                    <label class="block text-xs font-medium text-gray-300">Password</label>
-                                    <input type="password" id="wifi-pass" placeholder="SecretPassword" class="w-full px-3 py-2 bg-slate-900/80 border border-white/15 rounded-xl text-white focus:outline-none focus:border-cyan-400">
+                                    <label class="block text-[11px] font-medium text-gray-300">Password</label>
+                                    <input type="password" id="wifi-pass" class="w-full px-2.5 py-1 bg-slate-900/80 border border-white/15 rounded-lg text-white text-xs">
                                 </div>
                                 <div>
-                                    <label class="block text-xs font-medium text-gray-300">Encryption</label>
-                                    <select id="wifi-enc" class="w-full px-3 py-2 bg-slate-900/80 border border-white/15 rounded-xl text-white focus:outline-none focus:border-cyan-400">
+                                    <label class="block text-[11px] font-medium text-gray-300">Encryption</label>
+                                    <select id="wifi-enc" class="w-full px-2.5 py-1 bg-slate-900/80 border border-white/15 rounded-lg text-white text-xs">
                                         <option value="WPA">WPA/WPA2</option>
                                         <option value="WEP">WEP</option>
-                                        <option value="nopass">None (Open)</option>
+                                        <option value="nopass">None</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Email Fields -->
-                        <div id="input-group-email" class="space-y-3 input-group hidden">
-                            <div>
-                                <label class="block text-xs font-medium text-gray-300">Recipient Email</label>
-                                <input type="email" id="email-target" placeholder="contact@domain.com" class="w-full px-3 py-2 bg-slate-900/80 border border-white/15 rounded-xl text-white">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-medium text-gray-300">Subject</label>
-                                <input type="text" id="email-subject" placeholder="Inquiry about Services" class="w-full px-3 py-2 bg-slate-900/80 border border-white/15 rounded-xl text-white">
-                            </div>
+                        <div id="input-group-email" class="space-y-2 input-group hidden">
+                            <input type="email" id="email-target" placeholder="email@domain.com" class="w-full px-2.5 py-1 bg-slate-900/80 border border-white/15 rounded-lg text-white text-xs">
+                            <input type="text" id="email-subject" placeholder="Subject" class="w-full px-2.5 py-1 bg-slate-900/80 border border-white/15 rounded-lg text-white text-xs">
                         </div>
 
                         <!-- Phone / SMS / WhatsApp -->
-                        <div id="input-group-phone" class="space-y-3 input-group hidden">
-                            <div>
-                                <label class="block text-xs font-medium text-gray-300">Phone Number (with Country Code)</label>
-                                <input type="tel" id="phone-number" placeholder="+1234567890" class="w-full px-3 py-2 bg-slate-900/80 border border-white/15 rounded-xl text-white">
-                            </div>
+                        <div id="input-group-phone" class="space-y-2 input-group hidden">
+                            <input type="tel" id="phone-number" placeholder="+1234567890" class="w-full px-2.5 py-1 bg-slate-900/80 border border-white/15 rounded-lg text-white text-xs">
                             <div id="sms-message-wrapper" class="hidden">
-                                <label class="block text-xs font-medium text-gray-300">Message</label>
-                                <textarea id="sms-message" rows="2" placeholder="Preset message content..." class="w-full p-2.5 bg-slate-900/80 border border-white/15 rounded-xl text-white"></textarea>
+                                <textarea id="sms-message" rows="2" placeholder="Message content..." class="w-full p-2 bg-slate-900/80 border border-white/15 rounded-lg text-white text-xs"></textarea>
                             </div>
                         </div>
 
                         <!-- VCard Fields -->
-                        <div id="input-group-vcard" class="grid grid-cols-2 gap-3 input-group hidden">
-                            <div>
-                                <label class="block text-xs font-medium text-gray-300">Full Name</label>
-                                <input type="text" id="vcard-name" placeholder="John Doe" class="w-full px-3 py-2 bg-slate-900/80 border border-white/15 rounded-xl text-white">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-medium text-gray-300">Organization / Company</label>
-                                <input type="text" id="vcard-org" placeholder="Acme Corp" class="w-full px-3 py-2 bg-slate-900/80 border border-white/15 rounded-xl text-white">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-medium text-gray-300">Phone</label>
-                                <input type="tel" id="vcard-phone" placeholder="+100000000" class="w-full px-3 py-2 bg-slate-900/80 border border-white/15 rounded-xl text-white">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-medium text-gray-300">Email</label>
-                                <input type="email" id="vcard-email" placeholder="john@example.com" class="w-full px-3 py-2 bg-slate-900/80 border border-white/15 rounded-xl text-white">
-                            </div>
+                        <div id="input-group-vcard" class="grid grid-cols-2 gap-2 input-group hidden">
+                            <input type="text" id="vcard-name" placeholder="Full Name" class="w-full px-2 py-1 bg-slate-900/80 border border-white/15 rounded-lg text-white text-xs">
+                            <input type="text" id="vcard-org" placeholder="Company" class="w-full px-2 py-1 bg-slate-900/80 border border-white/15 rounded-lg text-white text-xs">
+                            <input type="tel" id="vcard-phone" placeholder="Phone" class="w-full px-2 py-1 bg-slate-900/80 border border-white/15 rounded-lg text-white text-xs">
+                            <input type="email" id="vcard-email" placeholder="Email" class="w-full px-2 py-1 bg-slate-900/80 border border-white/15 rounded-lg text-white text-xs">
                         </div>
                     </div>
                 </div>
 
-                <div class="glass-panel rounded-2xl p-5 md:p-6 space-y-4">
-                    <h3 class="font-bold text-sm text-cyan-300 flex items-center gap-2 border-b border-white/10 pb-2">
-                        <i data-lucide="sliders" class="w-4 h-4"></i> Styling & Customization
+                <!-- Custom Styling Panel -->
+                <div class="glass-panel rounded-xl p-3 space-y-2 shrink-0">
+                    <h3 class="font-bold text-xs text-cyan-300 flex items-center gap-1.5 border-b border-white/10 pb-1">
+                        <i data-lucide="sliders" class="w-3.5 h-3.5"></i> Custom Design
                     </h3>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <!-- Foreground Color -->
-                        <div class="space-y-1">
-                            <label class="block text-xs text-gray-300">QR Code Color (Dots)</label>
-                            <div class="flex items-center gap-2">
-                                <input type="color" id="qr-color-dark" value="#000000" class="w-10 h-10 rounded-lg cursor-pointer bg-transparent border-0">
-                                <input type="text" id="qr-color-dark-hex" value="#000000" class="flex-1 px-3 py-1.5 bg-slate-900/80 border border-white/15 rounded-lg text-xs text-white uppercase">
+                    <div class="grid grid-cols-2 gap-2">
+                        <div class="space-y-0.5">
+                            <label class="block text-[10px] text-gray-300">QR Color</label>
+                            <div class="flex items-center gap-1.5">
+                                <input type="color" id="qr-color-dark" value="#000000" class="w-7 h-7 rounded cursor-pointer bg-transparent border-0">
+                                <input type="text" id="qr-color-dark-hex" value="#000000" class="flex-1 px-2 py-0.5 bg-slate-900/80 border border-white/15 rounded text-[10px] text-white uppercase">
                             </div>
                         </div>
 
-                        <!-- Background Color -->
-                        <div class="space-y-1">
-                            <label class="block text-xs text-gray-300">Background Color</label>
-                            <div class="flex items-center gap-2">
-                                <input type="color" id="qr-color-light" value="#ffffff" class="w-10 h-10 rounded-lg cursor-pointer bg-transparent border-0">
-                                <input type="text" id="qr-color-light-hex" value="#ffffff" class="flex-1 px-3 py-1.5 bg-slate-900/80 border border-white/15 rounded-lg text-xs text-white uppercase">
+                        <div class="space-y-0.5">
+                            <label class="block text-[10px] text-gray-300">Background Color</label>
+                            <div class="flex items-center gap-1.5">
+                                <input type="color" id="qr-color-light" value="#ffffff" class="w-7 h-7 rounded cursor-pointer bg-transparent border-0">
+                                <input type="text" id="qr-color-light-hex" value="#ffffff" class="flex-1 px-2 py-0.5 bg-slate-900/80 border border-white/15 rounded text-[10px] text-white uppercase">
                             </div>
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <!-- Error Correction Level -->
-                        <div class="space-y-1">
-                            <label class="block text-xs text-gray-300">Error Correction Level</label>
-                            <select id="qr-ecl" class="w-full px-3 py-2 bg-slate-900/80 border border-white/15 rounded-xl text-xs text-white">
+                    <div class="grid grid-cols-2 gap-2 pt-1">
+                        <div>
+                            <label class="block text-[10px] text-gray-300">Error Correction</label>
+                            <select id="qr-ecl" class="w-full px-2 py-1 bg-slate-900/80 border border-white/15 rounded-lg text-[10px] text-white">
                                 <option value="L">Low (~7%)</option>
                                 <option value="M" selected>Medium (~15%)</option>
                                 <option value="Q">Quartile (~25%)</option>
-                                <option value="H">High (~30% - Best for Logos)</option>
+                                <option value="H">High (~30%)</option>
                             </select>
                         </div>
 
-                        <!-- QR Size Slider -->
-                        <div class="space-y-1">
-                            <div class="flex justify-between text-xs text-gray-300">
-                                <span>QR Size</span>
-                                <span id="qr-size-val" class="font-mono text-cyan-400">256 px</span>
+                        <div>
+                            <div class="flex justify-between text-[10px] text-gray-300">
+                                <span>Size</span>
+                                <span id="qr-size-val" class="font-mono text-cyan-400">180 px</span>
                             </div>
-                            <input type="range" id="qr-size-slider" min="160" max="400" step="16" value="256" class="w-full accent-cyan-400">
+                            <input type="range" id="qr-size-slider" min="140" max="260" step="10" value="180" class="w-full accent-cyan-400">
                         </div>
                     </div>
 
                     <!-- Logo Overlay Upload -->
-                    <div class="space-y-2 pt-2">
-                        <label class="block text-xs font-semibold text-gray-300">Center Logo Overlay (Optional)</label>
-                        <div class="flex items-center gap-3">
-                            <label class="flex-1 border-2 border-dashed border-white/20 hover:border-cyan-400/50 rounded-xl p-3 text-center cursor-pointer bg-white/5 transition-colors">
-                                <input type="file" id="logo-file-input" accept="image/*" class="hidden">
-                                <div class="flex items-center justify-center gap-2 text-xs text-gray-300">
-                                    <i data-lucide="image" class="w-4 h-4 text-cyan-400"></i>
-                                    <span id="logo-file-label">Upload Custom Center Logo</span>
-                                </div>
-                            </label>
-                            <button id="clear-logo-btn" class="hidden p-3 bg-red-500/20 text-red-300 border border-red-500/30 rounded-xl hover:bg-red-500/30 text-xs">
-                                Remove Logo
-                            </button>
-                        </div>
+                    <div class="flex items-center gap-2 pt-1">
+                        <label class="flex-1 border border-dashed border-white/20 hover:border-cyan-400/50 rounded-lg p-1.5 text-center cursor-pointer bg-white/5 transition-colors">
+                            <input type="file" id="logo-file-input" accept="image/*" class="hidden">
+                            <div class="flex items-center justify-center gap-1.5 text-[10px] text-gray-300">
+                                <i data-lucide="image" class="w-3.5 h-3.5 text-cyan-400"></i>
+                                <span id="logo-file-label">Upload Custom Center Logo</span>
+                            </div>
+                        </label>
+                        <button id="clear-logo-btn" class="hidden px-2 py-1 bg-red-500/20 text-red-300 border border-red-500/30 rounded-lg hover:bg-red-500/30 text-[10px]">
+                            Remove
+                        </button>
                     </div>
                 </div>
 
             </div>
 
-            <!-- RIGHT COLUMN: Real-time Live Preview & Download Actions -->
-            <div class="lg:col-span-5 space-y-6">
+            <!-- RIGHT COLUMN: Real-time Live Preview & Actions -->
+            <div class="lg:col-span-5 flex flex-col justify-between gap-2 h-full">
 
-                <div class="glass-panel rounded-2xl p-6 flex flex-col items-center justify-center space-y-6 text-center">
+                <div class="glass-panel rounded-xl p-3 flex flex-col items-center justify-center space-y-3 text-center flex-1">
                     
                     <div class="flex items-center justify-between w-full">
-                        <span class="text-xs font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1.5">
-                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Live QR Preview
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Live QR Preview
                         </span>
-                        <span id="badge-mode" class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">STATIC MODE</span>
+                        <span id="badge-mode" class="text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">STATIC MODE</span>
                     </div>
 
                     <!-- CANVAS RENDER CONTAINER -->
-                    <div id="qr-canvas-wrapper" class="relative group">
-                        <div id="qrcode" class="p-2"></div>
-                        <!-- Canvas logo overlay element -->
-                        <img id="qr-logo-preview" class="absolute pointer-events-none hidden object-contain rounded-md" style="max-width: 22%; max-height: 22%;" />
+                    <div id="qr-canvas-wrapper" class="relative group my-auto">
+                        <div id="qrcode" class="p-1"></div>
+                        <img id="qr-logo-preview" class="absolute pointer-events-none hidden object-contain rounded" style="max-width: 22%; max-height: 22%;" />
                     </div>
 
                     <!-- Encoded Raw Payload Display -->
-                    <div class="w-full bg-slate-950/60 rounded-xl p-3 border border-white/10 text-left font-mono text-[11px] text-gray-400 space-y-1">
-                        <div class="text-[10px] text-gray-500 uppercase font-sans font-semibold">Encoded Data Output:</div>
-                        <div id="payload-display" class="truncate text-cyan-300 font-mono">https://www.qrcreator.com</div>
+                    <div class="w-full bg-slate-950/60 rounded-lg p-2 border border-white/10 text-left font-mono text-[10px] text-gray-400 space-y-0.5">
+                        <div class="text-[9px] text-gray-500 uppercase font-sans font-semibold">Encoded Target Output:</div>
+                        <div id="payload-display" class="truncate text-cyan-300 font-mono">https://mohamedaslamka-mabjas.github.io/free-offline-qr-code-generator-MABJAS/</div>
                     </div>
 
                     <!-- EXPORT BUTTONS -->
-                    <div class="grid grid-cols-2 gap-3 w-full">
-                        <button id="btn-download-png" class="py-2.5 px-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 font-semibold text-xs flex items-center justify-center gap-2 hover:opacity-90 btn-glow shadow-md">
-                            <i data-lucide="download" class="w-4 h-4"></i> Download PNG
+                    <div class="grid grid-cols-2 gap-2 w-full">
+                        <button id="btn-download-png" class="py-1.5 px-3 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 font-semibold text-[11px] flex items-center justify-center gap-1 hover:opacity-90 btn-glow shadow-md">
+                            <i data-lucide="download" class="w-3.5 h-3.5"></i> PNG
                         </button>
-                        <button id="btn-download-svg" class="py-2.5 px-4 rounded-xl bg-white/10 border border-white/20 font-semibold text-xs flex items-center justify-center gap-2 hover:bg-white/20 btn-glow">
-                            <i data-lucide="file-code" class="w-4 h-4"></i> Download SVG
+                        <button id="btn-download-svg" class="py-1.5 px-3 rounded-lg bg-white/10 border border-white/20 font-semibold text-[11px] flex items-center justify-center gap-1 hover:bg-white/20 btn-glow">
+                            <i data-lucide="file-code" class="w-3.5 h-3.5"></i> SVG
                         </button>
-                        <button id="btn-copy-clip" class="py-2.5 px-4 rounded-xl bg-white/10 border border-white/20 font-semibold text-xs flex items-center justify-center gap-2 hover:bg-white/20 btn-glow">
-                            <i data-lucide="copy" class="w-4 h-4"></i> Copy Image
+                        <button id="btn-copy-clip" class="py-1.5 px-3 rounded-lg bg-white/10 border border-white/20 font-semibold text-[11px] flex items-center justify-center gap-1 hover:bg-white/20 btn-glow">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy
                         </button>
-                        <button id="btn-print-qr" class="py-2.5 px-4 rounded-xl bg-purple-600/30 border border-purple-500/40 text-purple-200 font-semibold text-xs flex items-center justify-center gap-2 hover:bg-purple-600/40 btn-glow">
-                            <i data-lucide="printer" class="w-4 h-4"></i> Print Layout
+                        <button id="btn-print-qr" class="py-1.5 px-3 rounded-lg bg-purple-600/30 border border-purple-500/40 text-purple-200 font-semibold text-[11px] flex items-center justify-center gap-1 hover:bg-purple-600/40 btn-glow">
+                            <i data-lucide="printer" class="w-3.5 h-3.5"></i> Print
                         </button>
                     </div>
 
-                </div>
-
-                <!-- QUICK STATS / FEATURE RECAP CARD -->
-                <div class="glass-panel rounded-2xl p-4 space-y-2 text-xs text-gray-300">
-                    <h4 class="font-bold text-white flex items-center gap-1.5">
-                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> Why Choose Offline QR Generator?
-                    </h4>
-                    <ul class="space-y-1 list-disc list-inside text-gray-400 text-[11px]">
-                        <li><strong>No Server Latency:</strong> Instant generation in your browser engine.</li>
-                        <li><strong>Complete Privacy:</strong> Your URLs, Wi-Fi keys & contacts never touch any cloud.</li>
-                        <li><strong>Vector Export:</strong> Clean SVG rendering for high-def print banners.</li>
-                    </ul>
                 </div>
 
             </div>
 
         </main>
 
-        <div id="calendar-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center hidden p-4">
-            <div class="glass-panel rounded-2xl p-6 max-w-sm w-full space-y-4 border border-white/20 shadow-2xl relative">
-                <button id="close-calendar" class="absolute top-4 right-4 text-gray-400 hover:text-white">
-                    <i data-lucide="x" class="w-5 h-5"></i>
+        <!-- CALENDAR MODAL -->
+        <div id="calendar-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center hidden p-3">
+            <div class="glass-panel rounded-xl p-4 max-w-xs w-full space-y-3 border border-white/20 shadow-2xl relative">
+                <button id="close-calendar" class="absolute top-3 right-3 text-gray-400 hover:text-white">
+                    <i data-lucide="x" class="w-4 h-4"></i>
                 </button>
-                <div class="text-center space-y-1">
-                    <h3 id="cal-month-year" class="font-bold text-lg text-cyan-400">Month Year</h3>
-                    <p class="text-xs text-gray-400">Offline Local Calendar</p>
+                <div class="text-center space-y-0.5">
+                    <h3 id="cal-month-year" class="font-bold text-base text-cyan-400">Month Year</h3>
+                    <p class="text-[10px] text-gray-400">Offline Local Calendar</p>
                 </div>
-                <div class="grid grid-cols-7 gap-1 text-center font-bold text-xs text-gray-400 py-1">
+                <div class="grid grid-cols-7 gap-1 text-center font-bold text-[10px] text-gray-400 py-0.5">
                     <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
                 </div>
-                <div id="cal-days-grid" class="grid grid-cols-7 gap-1 text-center text-xs"></div>
+                <div id="cal-days-grid" class="grid grid-cols-7 gap-1 text-center text-[11px]"></div>
             </div>
         </div>
 
-        <footer class="glass-panel rounded-2xl p-6 text-center space-y-3 border border-white/10">
-            <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-gray-300">
-                <span class="flex items-center gap-1"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> * Free</span>
-                <span class="flex items-center gap-1"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> * No Subscription</span>
-                <span class="flex items-center gap-1"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> * No Login</span>
-                <span class="flex items-center gap-1"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> * No Data Storage</span>
-                <span class="flex items-center gap-1"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> * 100% Offline</span>
+        <!-- FOOTER -->
+        <footer class="glass-panel rounded-xl p-2 text-center space-y-1 border border-white/10 shrink-0">
+            <div class="flex flex-wrap items-center justify-center gap-3 text-[10px] text-gray-300">
+                <span class="flex items-center gap-0.5"><i data-lucide="check" class="w-3 h-3 text-cyan-400"></i> * Free</span>
+                <span class="flex items-center gap-0.5"><i data-lucide="check" class="w-3 h-3 text-cyan-400"></i> * No Subscription</span>
+                <span class="flex items-center gap-0.5"><i data-lucide="check" class="w-3 h-3 text-cyan-400"></i> * No Login</span>
+                <span class="flex items-center gap-0.5"><i data-lucide="check" class="w-3 h-3 text-cyan-400"></i> * No Data Storage</span>
+                <span class="flex items-center gap-0.5"><i data-lucide="check" class="w-3 h-3 text-cyan-400"></i> * 100% Offline</span>
             </div>
-            <div class="pt-2 border-t border-white/10 text-sm font-extrabold tracking-wider">
-                <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-400 to-cyan-400 text-lg">
+            <div class="pt-0.5 border-t border-white/10 text-xs font-extrabold tracking-wider">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-400 to-cyan-400 text-sm">
                     Powered by MABJAS
                 </span>
             </div>
@@ -636,9 +589,9 @@
         /* Initialize Lucide Icons */
         lucide.createIcons();
 
-        /* Global Application State */
+        /* Application State */
         const state = {
-            mode: 'static', // 'static' or 'dynamic'
+            mode: 'static',
             type: 'url',
             theme: 'cyberpunk',
             cursor: 'ring',
@@ -649,7 +602,7 @@
             qrColorDark: '#000000',
             qrColorLight: '#ffffff',
             qrEcl: 'M',
-            qrSize: 256,
+            qrSize: 180,
             logoDataUrl: null,
             dynamicAlias: Math.random().toString(36).substring(2, 8)
         };
@@ -673,7 +626,7 @@
                 osc.type = 'sine';
                 osc.frequency.setValueAtTime(600, now);
                 osc.frequency.exponentialRampToValueAtTime(200, now + 0.05);
-                gain.gain.setValueAtTime(0.15, now);
+                gain.gain.setValueAtTime(0.12, now);
                 gain.gain.linearRampToValueAtTime(0.01, now + 0.05);
                 osc.start(now);
                 osc.stop(now + 0.05);
@@ -681,22 +634,22 @@
                 osc.type = 'triangle';
                 osc.frequency.setValueAtTime(440, now);
                 osc.frequency.exponentialRampToValueAtTime(880, now + 0.15);
-                gain.gain.setValueAtTime(0.2, now);
-                gain.gain.linearRampToValueAtTime(0.01, now + 0.2);
+                gain.gain.setValueAtTime(0.15, now);
+                gain.gain.linearRampToValueAtTime(0.01, now + 0.15);
                 osc.start(now);
-                osc.stop(now + 0.2);
+                osc.stop(now + 0.15);
             } else if (type === 'error') {
                 osc.type = 'sawtooth';
                 osc.frequency.setValueAtTime(150, now);
                 osc.frequency.linearRampToValueAtTime(80, now + 0.15);
-                gain.gain.setValueAtTime(0.2, now);
+                gain.gain.setValueAtTime(0.15, now);
                 gain.gain.linearRampToValueAtTime(0.01, now + 0.15);
                 osc.start(now);
                 osc.stop(now + 0.15);
             } else if (type === 'tick') {
                 osc.type = 'sine';
                 osc.frequency.setValueAtTime(800, now);
-                gain.gain.setValueAtTime(0.05, now);
+                gain.gain.setValueAtTime(0.04, now);
                 gain.gain.linearRampToValueAtTime(0.001, now + 0.02);
                 osc.start(now);
                 osc.stop(now + 0.02);
@@ -719,7 +672,6 @@
             state.mouse.y = e.clientY;
             bgHue = (e.clientX / window.innerWidth) * 360;
             
-            // Move Custom Cursor Element
             const cursorElem = document.getElementById('custom-cursor');
             if (cursorElem) {
                 cursorElem.style.left = `${e.clientX}px`;
@@ -752,7 +704,7 @@
                 grad.addColorStop(0, `hsla(140, 80%, ${20 + (state.mouse.y/height)*20}%, 0.4)`);
                 grad.addColorStop(0.5, 'rgba(3, 20, 10, 0.9)');
                 grad.addColorStop(1, '#021107');
-            } else { // pasteldream
+            } else {
                 grad.addColorStop(0, `hsla(${bgHue}, 80%, 35%, 0.3)`);
                 grad.addColorStop(0.5, 'rgba(25, 20, 35, 0.9)');
                 grad.addColorStop(1, '#13111c');
@@ -779,15 +731,13 @@
             y: window.innerHeight / 2,
             vx: 0,
             vy: 0,
-            radius: 20,
-            eyeOffset: 0
+            radius: 16
         };
 
         function animatePet() {
             petCtx.clearRect(0, 0, petCanvas.width, petCanvas.height);
 
             if (state.petEnabled) {
-                // Physics delay chase
                 const dx = state.mouse.x - pet.x;
                 const dy = state.mouse.y - pet.y;
                 pet.vx += dx * 0.003;
@@ -798,54 +748,47 @@
                 pet.x += pet.vx;
                 pet.y += pet.vy;
 
-                // Draw Cute Pet Body
                 petCtx.save();
                 petCtx.translate(pet.x, pet.y);
 
-                // Body glow
-                petCtx.shadowBlur = 15;
+                petCtx.shadowBlur = 12;
                 petCtx.shadowColor = 'var(--accent-primary)';
 
-                // Body Blob
                 petCtx.beginPath();
                 petCtx.arc(0, 0, pet.radius, 0, Math.PI * 2);
                 petCtx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--accent-primary').trim() || '#00f0ff';
                 petCtx.fill();
 
-                // Eyes following mouse angle
                 const angle = Math.atan2(dy, dx);
-                const eyeDist = 6;
+                const eyeDist = 4;
                 const eyeX = Math.cos(angle) * eyeDist;
                 const eyeY = Math.sin(angle) * eyeDist;
 
                 petCtx.shadowBlur = 0;
-                // Left Eye
                 petCtx.beginPath();
-                petCtx.arc(-6 + eyeX, -3 + eyeY, 4, 0, Math.PI * 2);
+                petCtx.arc(-4 + eyeX, -2 + eyeY, 3, 0, Math.PI * 2);
                 petCtx.fillStyle = '#ffffff';
                 petCtx.fill();
 
                 petCtx.beginPath();
-                petCtx.arc(-6 + eyeX * 1.2, -3 + eyeY * 1.2, 2, 0, Math.PI * 2);
+                petCtx.arc(-4 + eyeX * 1.2, -2 + eyeY * 1.2, 1.5, 0, Math.PI * 2);
                 petCtx.fillStyle = '#000000';
                 petCtx.fill();
 
-                // Right Eye
                 petCtx.beginPath();
-                petCtx.arc(6 + eyeX, -3 + eyeY, 4, 0, Math.PI * 2);
+                petCtx.arc(4 + eyeX, -2 + eyeY, 3, 0, Math.PI * 2);
                 petCtx.fillStyle = '#ffffff';
                 petCtx.fill();
 
                 petCtx.beginPath();
-                petCtx.arc(6 + eyeX * 1.2, -3 + eyeY * 1.2, 2, 0, Math.PI * 2);
+                petCtx.arc(4 + eyeX * 1.2, -2 + eyeY * 1.2, 1.5, 0, Math.PI * 2);
                 petCtx.fillStyle = '#000000';
                 petCtx.fill();
 
-                // Mouth
                 petCtx.beginPath();
-                petCtx.arc(0, 4, 4, 0, Math.PI);
+                petCtx.arc(0, 3, 3, 0, Math.PI);
                 petCtx.strokeStyle = '#000000';
-                petCtx.lineWidth = 1.5;
+                petCtx.lineWidth = 1.2;
                 petCtx.stroke();
 
                 petCtx.restore();
@@ -879,14 +822,13 @@
             grid.innerHTML = '';
 
             for (let i = 0; i < firstDay; i++) {
-                const empty = document.createElement('div');
-                grid.appendChild(empty);
+                grid.appendChild(document.createElement('div'));
             }
 
             for (let day = 1; day <= daysInMonth; day++) {
                 const cell = document.createElement('div');
                 cell.innerText = day;
-                cell.className = 'py-1.5 rounded-lg hover:bg-white/10 transition-colors';
+                cell.className = 'py-1 rounded hover:bg-white/10 transition-colors';
                 if (day === now.getDate()) {
                     cell.className += ' bg-cyan-500 text-black font-bold';
                 }
@@ -907,14 +849,15 @@
         let qrCodeInstance = null;
 
         function getPayloadString() {
+            const customUrl = "https://mohamedaslamka-mabjas.github.io/free-offline-qr-code-generator-MABJAS/";
             if (state.mode === 'dynamic') {
-                const target = document.getElementById('input-url').value || 'https://www.qrcreator.com';
-                return `https://qrcreator.com/dyn/${state.dynamicAlias}?redirect=${encodeURIComponent(target)}`;
+                const target = document.getElementById('input-url').value || customUrl;
+                return `${customUrl}?dyn=${state.dynamicAlias}&redirect=${encodeURIComponent(target)}`;
             }
 
             switch (state.type) {
                 case 'url':
-                    return document.getElementById('input-url').value || 'https://www.qrcreator.com';
+                    return document.getElementById('input-url').value || customUrl;
                 case 'text':
                     return document.getElementById('input-text').value || 'Hello World';
                 case 'wifi':
@@ -942,7 +885,7 @@
                     const em = document.getElementById('vcard-email').value || '';
                     return `BEGIN:VCARD\nVERSION:3.0\nN:${name}\nORG:${org}\nTEL:${tel}\nEMAIL:${em}\nEND:VCARD`;
                 default:
-                    return 'https://www.qrcreator.com';
+                    return customUrl;
             }
         }
 
@@ -969,7 +912,6 @@
                 correctLevel: eclMap[state.qrEcl] || QRCode.CorrectLevel.M
             });
 
-            // Update center logo if exists
             const logoImg = document.getElementById('qr-logo-preview');
             if (state.logoDataUrl) {
                 logoImg.src = state.logoDataUrl;
@@ -979,12 +921,11 @@
             }
         }
 
-        // Mode Tabs
         document.getElementById('tab-static').addEventListener('click', () => {
             playSound('click');
             state.mode = 'static';
-            document.getElementById('tab-static').className = 'flex-1 py-3 px-4 rounded-xl font-bold text-center flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg btn-glow';
-            document.getElementById('tab-dynamic').className = 'flex-1 py-3 px-4 rounded-xl font-bold text-center flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-gray-300 transition-colors btn-glow';
+            document.getElementById('tab-static').className = 'flex-1 py-2 px-3 rounded-lg font-bold text-center flex items-center justify-center gap-1.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md btn-glow text-xs';
+            document.getElementById('tab-dynamic').className = 'flex-1 py-2 px-3 rounded-lg font-bold text-center flex items-center justify-center gap-1.5 bg-white/5 hover:bg-white/10 text-gray-300 transition-colors btn-glow text-xs';
             document.getElementById('badge-mode').innerText = 'STATIC MODE';
             document.getElementById('dynamic-info-banner').classList.add('hidden');
             renderQRCode();
@@ -993,14 +934,13 @@
         document.getElementById('tab-dynamic').addEventListener('click', () => {
             playSound('click');
             state.mode = 'dynamic';
-            document.getElementById('tab-dynamic').className = 'flex-1 py-3 px-4 rounded-xl font-bold text-center flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-pink-600 text-white shadow-lg btn-glow';
-            document.getElementById('tab-static').className = 'flex-1 py-3 px-4 rounded-xl font-bold text-center flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-gray-300 transition-colors btn-glow';
+            document.getElementById('tab-dynamic').className = 'flex-1 py-2 px-3 rounded-lg font-bold text-center flex items-center justify-center gap-1.5 bg-gradient-to-r from-purple-500 to-pink-600 text-white shadow-md btn-glow text-xs';
+            document.getElementById('tab-static').className = 'flex-1 py-2 px-3 rounded-lg font-bold text-center flex items-center justify-center gap-1.5 bg-white/5 hover:bg-white/10 text-gray-300 transition-colors btn-glow text-xs';
             document.getElementById('badge-mode').innerText = 'DYNAMIC MODE';
             document.getElementById('dynamic-info-banner').classList.remove('hidden');
             renderQRCode();
         });
 
-        // Content Type Switcher
         document.querySelectorAll('.type-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 playSound('click');
@@ -1013,10 +953,8 @@
 
                 state.type = targetBtn.dataset.type;
 
-                // Hide all input groups
                 document.querySelectorAll('.input-group').forEach(g => g.classList.add('hidden'));
 
-                // Show selected input group
                 if (['url', 'text', 'wifi', 'email', 'vcard'].includes(state.type)) {
                     document.getElementById(`input-group-${state.type}`).classList.remove('hidden');
                 } else if (['phone', 'sms', 'whatsapp'].includes(state.type)) {
@@ -1030,14 +968,12 @@
             });
         });
 
-        // Dynamic Input Observers for Real-time Updates
         document.querySelectorAll('input, textarea, select').forEach(elem => {
             elem.addEventListener('input', () => {
                 renderQRCode();
             });
         });
 
-        // Color Pickers Sync
         const colorDark = document.getElementById('qr-color-dark');
         const colorDarkHex = document.getElementById('qr-color-dark-hex');
         colorDark.addEventListener('input', (e) => {
@@ -1068,7 +1004,6 @@
             }
         });
 
-        // ECL & Size Slider
         document.getElementById('qr-ecl').addEventListener('change', (e) => {
             playSound('tick');
             state.qrEcl = e.target.value;
@@ -1082,7 +1017,6 @@
             renderQRCode();
         });
 
-        // Logo Upload Handler
         document.getElementById('logo-file-input').addEventListener('change', (e) => {
             const file = e.target.files[0];
             if (file) {
@@ -1107,14 +1041,12 @@
             renderQRCode();
         });
 
-        // Theme Switcher
         document.getElementById('theme-select').addEventListener('change', (e) => {
             playSound('click');
             state.theme = e.target.value;
             document.documentElement.setAttribute('data-theme', state.theme);
         });
 
-        // Custom Cursor Switcher
         document.getElementById('cursor-select').addEventListener('change', (e) => {
             playSound('click');
             state.cursor = e.target.value;
@@ -1128,14 +1060,12 @@
             }
         });
 
-        // Pet Toggle
         document.getElementById('pet-toggle-btn').addEventListener('click', () => {
             playSound('click');
             state.petEnabled = !state.petEnabled;
             document.getElementById('pet-toggle-text').innerText = `Pet: ${state.petEnabled ? 'ON' : 'OFF'}`;
         });
 
-        // Sound Toggle
         document.getElementById('sound-toggle-btn').addEventListener('click', () => {
             state.soundEnabled = !state.soundEnabled;
             document.getElementById('sound-text').innerText = `Sound: ${state.soundEnabled ? 'ON' : 'OFF'}`;
@@ -1144,31 +1074,28 @@
             if (state.soundEnabled) playSound('click');
         });
 
-        // Font Size Controllers
         document.getElementById('font-sm').addEventListener('click', () => {
             playSound('click');
-            document.body.className = 'p-2 md:p-6 text-xs';
+            document.body.className = 'p-2 lg:p-3 text-[11px] min-h-screen lg:h-screen lg:overflow-hidden flex flex-col justify-between';
         });
         document.getElementById('font-normal').addEventListener('click', () => {
             playSound('click');
-            document.body.className = 'p-2 md:p-6 text-sm';
+            document.body.className = 'p-2 lg:p-3 text-xs min-h-screen lg:h-screen lg:overflow-hidden flex flex-col justify-between';
         });
         document.getElementById('font-lg').addEventListener('click', () => {
             playSound('click');
-            document.body.className = 'p-2 md:p-6 text-base';
+            document.body.className = 'p-2 lg:p-3 text-sm min-h-screen lg:h-screen lg:overflow-hidden flex flex-col justify-between';
         });
 
-        // Mobile / Desktop View Simulator Toggle
         document.getElementById('view-desktop').addEventListener('click', () => {
             playSound('click');
-            document.getElementById('app-viewport').className = 'relative z-10 max-w-7xl mx-auto space-y-6';
+            document.getElementById('app-viewport').className = 'relative z-10 max-w-7xl mx-auto w-full flex-1 flex flex-col justify-between gap-2 h-full';
         });
         document.getElementById('view-mobile').addEventListener('click', () => {
             playSound('click');
-            document.getElementById('app-viewport').className = 'relative z-10 simulator-mobile space-y-6 my-6';
+            document.getElementById('app-viewport').className = 'relative z-10 simulator-mobile space-y-3 my-2';
         });
 
-        // Download PNG
         document.getElementById('btn-download-png').addEventListener('click', () => {
             const img = document.querySelector('#qrcode img');
             if (img && img.src) {
@@ -1182,7 +1109,6 @@
             }
         });
 
-        // Download SVG Vector
         document.getElementById('btn-download-svg').addEventListener('click', () => {
             const img = document.querySelector('#qrcode img');
             if (!img) return;
@@ -1193,7 +1119,7 @@
             </svg>`;
 
             const blob = new Blob([svgText], { type: 'image/svg+xml' });
-            const url = URL.createObjectURL(blob);
+            const url = URL.URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
             a.download = `QR_Code_${Date.now()}.svg`;
@@ -1201,7 +1127,6 @@
             URL.revokeObjectURL(url);
         });
 
-        // Copy Image to Clipboard
         document.getElementById('btn-copy-clip').addEventListener('click', () => {
             const img = document.querySelector('#qrcode img');
             if (!img) return;
@@ -1219,13 +1144,11 @@
                 });
         });
 
-        // Print Layout
         document.getElementById('btn-print-qr').addEventListener('click', () => {
             playSound('click');
             window.print();
         });
 
-        // Initial Generation Run
         window.onload = () => {
             renderQRCode();
             document.body.style.cursor = 'none';
